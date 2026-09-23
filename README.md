@@ -18,21 +18,7 @@ nothing that needs an advanced JavaScript background to read.
 
 **ShutterCraft**
 
----
 
-## File structure
-
-```text
-ShutterCraft/
-├── index.html    → the page structure (camera selection + simulator)
-├── style.css     → all visual styling (camera body, HUD, gallery, etc.)
-├── script.js     → all interactivity (webcam, filters, gallery, challenges)
-└── README.md     → this file
-```
-
-Only these four files are needed. No build tools, no installs, no npm.
-
----
 
 ## How to run it
 
@@ -73,33 +59,7 @@ Only these four files are needed. No build tools, no installs, no npm.
   basic `if` statements
 - Fully responsive layout for desktop, tablet and mobile
 
----
 
-## Teaching notes
 
-- ISO, aperture and shutter speed **do not physically change** the
-  webcam — a normal webcam can't be controlled like a real lens. The
-  interface is a **learning simulation**: it teaches the vocabulary and
-  the trade-offs, and the note is shown to students directly on the page.
-- Auto Focus is also a simulation — see the comment above `startCamera()`-
-  style functions in `script.js` for the exact explanation to give
-  students.
-- Every function in `script.js` is written to be read and explained line
-  by line: `startCamera()`, `takePhoto()`, `changeFilter()`,
-  `changeZoom()`, `deletePhoto()`, `downloadPhoto()`, and so on.
 
----
 
-## JavaScript concepts covered
-
-Variables · Functions · Events (`addEventListener`) · If/else · Sliders ·
-DOM manipulation (`getElementById`, `classList`, `createElement`) ·
-Arrays and `for` loops · `<canvas>` and `toDataURL()` · Webcam access with
-`getUserMedia()` · Changing CSS from JavaScript
-
----
-
-## Credits
-
-Built as a beginner-friendly classroom project. Free to use, modify and
-share for teaching purposes.
