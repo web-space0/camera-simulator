@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photgraphy website </title>
+    <link rel="stylesheet" href="style1.css">
+
+</head>
+<body>
+    <section id = "selectionPage" class ="page">
+        <header class="topBar">
+      <h1>PHOTOGRAPHY LAB</h1>
+      <p class="tagline">Experiment. Capture. Learn.</p>
+    </header>
+
+    <div class="cardContainer">
+  // SONY CARD
+      <div class="cameraCard">
+        <div class="cameraDrawing sonyDrawing">
+          <div class="camBody">
+            <div class="camHotShoe"></div>
+            <div class="camViewfinderBump"></div>
+            <div class="camGrip"></div>
+            <div class="camShutterDot"></div>
+            <div class="camLensMount">
+              <div class="camLensRing3"></div>
+              <div class="camLensRing2"></div>
+              <div class="camLensRing1"></div>
+              <div class="camLensGlass"></div>
+            </div>
+          </div>
+        </div>
+        <h2>SONY</h2>
+        <p>Explore a modern mirrorless camera experience.</p>
+        <button class="selectButton" id="selectSony">SELECT CAMERA</button>
+      </div>
+
+      // CANON CARD 
+      <div class="cameraCard">
+        <div class="cameraDrawing canonDrawing">
+          <div class="camBody">
+            <div class="camFlashUnit"></div>
+            <div class="camViewfinderBox"></div>
+            <div class="camGrip"></div>
+            <div class="camShutterDot"></div>
+            <div class="camLensMount">
+              <div class="camLensRing3"></div>
+              <div class="camLensRing2"></div>
+              <div class="camLensRing1"></div>
+              <div class="camLensGlass"></div>
+            </div>
+          </div>
+        </div>
+        <h2>CANON</h2>
+        <p>Explore a classic photography camera experience.</p>
+        <button class="selectButton" id="selectCanon">SELECT CAMERA</button>
+      </div>
+
+    </div>
+
+    </section>
+
+    <section id="simulatorPage" class="page hidden">
+
+    <div class="simulatorLayout">
+      <div class="cameraColumn">
+        <div class="cameraBody">
+          <div class="topPlate">
+            <div class="hotShoeSmall"></div>
+            <div class="brandLabel" id="brandLabel">SONY</div>
+            <button id="topShutterButton" class="topShutterButton" title="Shutter button">●</button>
+          </div>
+
+          <div class="cameraScreen">
+            <div class="hudRow hudTop">
+              <span id="statusText" class="statusOffline">● OFFLINE</span>
+              <span id="isoText">ISO 200</span>
+              <span id="apertureText">f/2.8</span>
+            </div>
+
+
+            <div class="previewBox">
+              <video id="video" autoplay playsinline></video>
+              <img id="demoImage" class="hidden" src="" alt="Demo photography scene">
+
+              <div id="focusBox" class="focusBox hidden"></div>
+              <div id="flashOverlay" class="flashOverlay"></div>
+
+             
+              <div id="startOverlay" class="startOverlay">
+                <button id="startCameraButton" class="startButton">START CAMERA</button>
+                <p id="cameraErrorText" class="errorText hidden">Camera access was not allowed.</p>
+                <div id="errorButtons" class="errorButtons hidden">
+                  <button id="tryAgainButton" class="smallButton">TRY AGAIN</button>
+                  <button id="demoModeButton" class="smallButton">DEMO MODE</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="hudRow hudBottom">
+              <span id="shutterText">1/125</span>
+              <span id="zoomText">1.0x</span>
+              <span id="batteryText">🔋 85%</span>
+            </div>
+
+            <p id="focusStatusText" class="focusStatusText"></p>
+          </div>
+
+          <div class="bodyGrip"></div>
+
+          <div class="controlBox">
+            <label for="zoomSlider">ZOOM ROCKER</label>
+            <div class="rockerRow">
+              <span class="rockerIcon">W</span>
+              <input type="range" id="zoomSlider" min="1" max="3" step="0.1" value="1">
+              <span class="rockerIcon">T</span>
+            </div>
+          </div>
+
+          // BRIGHTNESS DIAL
+          <div class="controlBox">
+            <label for="brightnessSlider">EXPOSURE DIAL (BRIGHTNESS)</label>
+            <input type="range" id="brightnessSlider" min="50" max="150" step="5" value="100">
+          </div>
+
+          //FILTER MODE DIAL
+          <div class="controlBox">
+            <label>SCENE MODE DIAL (FILTER)</label>
+            <div class="buttonRow modeDial" id="filterButtons">
+              <button class="filterButton selectedOption" data-filter="normal">Normal</button>
+              <button class="filterButton" data-filter="bw">Black &amp; White</button>
+              <button class="filterButton" data-filter="vintage">Vintage</button>
+              <button class="filterButton" data-filter="warm">Warm</button>
+              <button class="filterButton" data-filter="cool">Cool</button>
+              <button class="filterButton" data-filter="bright">Bright</button>
+            </div>
+          </div>
+
+          //FOCUS + SHUTTER 
+          <div class="actionRow">
+            <button id="autoFocusButton" class="autoFocusButton">AUTO FOCUS</button>
+            <button id="takePhotoButton" class="shutterButton">● TAKE PHOTO</button>
+          </div>
+
+        </div>
+
+        <button id="backButton" class="backButton">← CHANGE CAMERA</button>
+      </div>
+
+      // RIGHT SIDE: SETTINGS PANEL 
+      <div class="settingsColumn">
+
+        <div class="panel">
+          <h3>ISO</h3>
+          <div class="buttonRow" id="isoButtons">
+            <button class="settingButton" data-iso="100">100</button>
+            <button class="settingButton selectedOption" data-iso="200">200</button>
+            <button class="settingButton" data-iso="400">400</button>
+            <button class="settingButton" data-iso="800">800</button>
+            <button class="settingButton" data-iso="1600">1600</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>APERTURE</h3>
+          <div class="buttonRow" id="apertureButtons">
+            <button class="settingButton" data-aperture="f/1.8">f/1.8</button>
+            <button class="settingButton selectedOption" data-aperture="f/2.8">f/2.8</button>
+            <button class="settingButton" data-aperture="f/4">f/4</button>
+            <button class="settingButton" data-aperture="f/5.6">f/5.6</button>
+            <button class="settingButton" data-aperture="f/8">f/8</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>SHUTTER SPEED</h3>
+          <div class="buttonRow" id="shutterButtons">
+            <button class="settingButton" data-shutter="1/30">1/30</button>
+            <button class="settingButton" data-shutter="1/60">1/60</button>
+            <button class="settingButton selectedOption" data-shutter="1/125">1/125</button>
+            <button class="settingButton" data-shutter="1/250">1/250</button>
+            <button class="settingButton" data-shutter="1/500">1/500</button>
+          </div>
+        </div>
+
+        <div class="panel noteBox">
+          <p>Note: ISO, aperture and shutter speed are a learning simulation. A normal webcam cannot really change these things, so we only update the numbers on the HUD.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="wideSection">
+      <h2>MY PHOTOS</h2>
+      <div id="galleryEmptyText" class="galleryEmptyText">No photos yet. Press TAKE PHOTO to capture one!</div>
+      <div id="gallery" class="gallery"></div>
+    </div>
+
+    <div class="wideSection">
+      <h2>LEARN PHOTOGRAPHY</h2>
+      <div class="lessonGrid">
+        <div class="lessonCard">
+          <h3>ISO</h3>
+          <p>ISO controls how sensitive the camera is to light. A higher ISO makes photos brighter in the dark, but can add grain.</p>
+        </div>
+        <div class="lessonCard">
+          <h3>APERTURE</h3>
+          <p>Aperture controls the opening of the lens. A wide aperture (small f-number) lets in more light and blurs the background.</p>
+        </div>
+        <div class="lessonCard">
+          <h3>SHUTTER SPEED</h3>
+          <p>Shutter speed controls how long the camera captures light. A fast shutter freezes motion; a slow shutter can blur it.</p>
+        </div>
+        <div class="lessonCard">
+          <h3>EXPOSURE</h3>
+          <p>Exposure is how bright or dark a photo looks. It is affected together by ISO, aperture and shutter speed.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wideSection">
+      <h2>PHOTOGRAPHY CHALLENGES</h2>
+      <div class="challengeGrid">
+
+        <div class="challengeCard">
+          <h3>Challenge 1</h3>
+          <p>Set ISO to 400.</p>
+          <button class="checkButton" id="checkChallenge1">CHECK</button>
+          <p class="challengeResult" id="result1"></p>
+        </div>
+
+        <div class="challengeCard">
+          <h3>Challenge 2</h3>
+          <p>Set aperture to f/2.8.</p>
+          <button class="checkButton" id="checkChallenge2">CHECK</button>
+          <p class="challengeResult" id="result2"></p>
+        </div>
+
+        <div class="challengeCard">
+          <h3>Challenge 3</h3>
+          <p>Set shutter speed to 1/250.</p>
+          <button class="checkButton" id="checkChallenge3">CHECK</button>
+          <p class="challengeResult" id="result3"></p>
+        </div>
+
+        <div class="challengeCard">
+          <h3>Challenge 4</h3>
+          <p>Set zoom to 2x.</p>
+          <button class="checkButton" id="checkChallenge4">CHECK</button>
+          <p class="challengeResult" id="result4"></p>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <canvas id="photoCanvas" class="hidden"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+</body></html>

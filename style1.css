@@ -1,0 +1,649 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #0d0f0e;
+  color: #f2f2ef;
+  line-height: 1.5;
+}
+.hidden {
+  display: none !important;
+}
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+
+.page {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.topBar {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.topBar h1 {
+  font-size: 42px;
+  letter-spacing: 4px;
+  color: #f2f2ef;
+}
+
+.tagline {
+  margin-top: 10px;
+  color: #6fcf68;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cameraCard {
+  background-color: #1a1d1b;
+  border: 1px solid #2b2f2c;
+  border-radius: 14px;
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.cameraCard:hover {
+  transform: translateY(-6px);
+  border-color: #6fcf68;
+}
+
+.cameraCard h2 {
+  margin-top: 10px;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.cameraCard p {
+  color: #9aa19c;
+  margin: 12px 0 20px 0;
+  font-size: 14px;
+}
+
+ */
+.cameraDrawing {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camBody {
+  position: relative;
+  width: 190px;
+  height: 110px;
+  background-image: linear-gradient(180deg, #34382f, #1b1e19);
+  border-radius: 10px;
+  border: 1px solid #454a3f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+
+.camLensMount {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camLensRing3 {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background-image: linear-gradient(135deg, #55594e, #23261f);
+}
+
+.camLensRing2 {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-image: linear-gradient(135deg, #14150f, #363a30);
+}
+
+.camLensRing1 {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #0a0b08;
+  border: 3px solid;
+}
+
+.sonyDrawing .camLensRing1 {
+  border-color: #6fcf68;
+}
+
+.canonDrawing .camLensRing1 {
+  border-color: #e8a33d;
+}
+
+.camLensGlass {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-image: radial-gradient(circle at 35% 30%, #7fa8c9, #0d0f0e 70%);
+}
+
+.camHotShoe, .camFlashUnit {
+  position: absolute;
+  top: -9px;
+  left: 24px;
+  width: 28px;
+  height: 10px;
+  background-color: #454a3f;
+  border-radius: 2px;
+}
+
+.camViewfinderBump {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 15px;
+  background-image: linear-gradient(180deg, #454a3f, #2b2f27);
+  border-radius: 4px 4px 0 0;
+}
+
+.camViewfinderBox {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  width: 34px;
+  height: 12px;
+  background-color: #2b2f27;
+  border-radius: 3px;
+}
+
+.camGrip {
+  position: absolute;
+  right: -8px;
+  top: 8px;
+  width: 20px;
+  height: 88px;
+  background-image: linear-gradient(90deg, #14150f, #2b2f27);
+  border-radius: 8px;
+}
+
+.camShutterDot {
+  position: absolute;
+  top: -8px;
+  right: 26px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e8734a;
+}
+
+.selectButton {
+  background-color: #6fcf68;
+  color: #0d0f0e;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.selectButton:hover {
+  background-color: #8ddc86;
+}
+
+
+.simulatorLayout {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cameraColumn {
+  width: 480px;
+  max-width: 100%;
+}
+
+
+.cameraBody {
+  position: relative;
+  background-image: linear-gradient(180deg, #2b2f2c, #17191600 40%), #1a1d1b;
+  border: 1px solid #3a3f39;
+  border-radius: 18px;
+  padding: 16px 22px 20px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+.topPlate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #33372f;
+}
+
+.hotShoeSmall {
+  width: 26px;
+  height: 10px;
+  background-color: #454a3f;
+  border-radius: 2px;
+}
+
+.brandLabel {
+  letter-spacing: 4px;
+  color: #6fcf68;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.topShutterButton {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #e8734a;
+  background-color: #2b2f2c;
+  color: #e8734a;
+  font-size: 14px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.topShutterButton:hover {
+  background-color: #e8734a;
+  color: #0d0f0e;
+}
+
+
+.bodyGrip {
+  position: absolute;
+  right: 6px;
+  top: 60px;
+  bottom: 20px;
+  width: 6px;
+  background-image: linear-gradient(180deg, #454a3f, #2b2f27);
+  border-radius: 4px;
+}
+
+.cameraScreen {
+  background-color: #101210;
+  border: 1px solid #2b2f2c;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.hudRow {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Consolas", monospace;
+  font-size: 13px;
+  color: #6fcf68;
+  padding: 6px 4px;
+}
+
+.statusOffline {
+  color: #9aa19c;
+}
+
+.statusLive {
+  color: #6fcf68;
+}
+
+.statusCapturing {
+  color: #e8a33d;
+}
+
+.previewBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #000000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#video, #demoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+}
+
+.focusBox {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  width: 30%;
+  height: 30%;
+  border: 2px solid #6fcf68;
+  border-radius: 4px;
+}
+
+.flashOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.flashActive {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.startOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 15, 14, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 20px;
+}
+
+.startButton {
+  background-color: #6fcf68;
+  color: #0d0f0e;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.errorText {
+  color: #e8734a;
+  font-size: 14px;
+}
+
+.errorButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.smallButton {
+  background-color: #2b2f2c;
+  color: #f2f2ef;
+  border: 1px solid #444944;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.focusStatusText {
+  text-align: center;
+  font-size: 13px;
+  color: #6fcf68;
+  height: 18px;
+  margin-top: 4px;
+}
+
+.controlBox {
+  margin-top: 16px;
+}
+
+.controlBox label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #9aa19c;
+  margin-bottom: 6px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #6fcf68;
+}
+.rockerRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rockerIcon {
+  font-size: 11px;
+  color: #9aa19c;
+  font-family: "Consolas", monospace;
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.modeDial {
+  background-color: #101210;
+  border: 1px solid #2b2f2c;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.filterButton, .settingButton {
+  background-color: #2b2f2c;
+  color: #f2f2ef;
+  border: 1px solid #444944;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 13px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filterButton:hover, .settingButton:hover {
+  border-color: #6fcf68;
+}
+.selectedOption {
+  background-color: #6fcf68;
+  color: #0d0f0e;
+  border-color: #6fcf68;
+  font-weight: bold;
+}
+
+.actionRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+.autoFocusButton {
+  flex: 1;
+  background-color: #2b2f2c;
+  color: #f2f2ef;
+  border: 1px solid #444944;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.shutterButton {
+  flex: 1;
+  background-color: #e8734a;
+  color: #0d0f0e;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.shutterButton:hover {
+  background-color: #f18a63;
+}
+
+.backButton {
+  display: block;
+  margin: 20px auto 0 auto;
+  background: none;
+  border: none;
+  color: #9aa19c;
+  font-size: 13px;
+  text-decoration: underline;
+}
+.settingsColumn {
+  width: 340px;
+  max-width: 100%;
+}
+
+.panel {
+  background-color: #1a1d1b;
+  border: 1px solid #2b2f2c;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.panel h3 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #9aa19c;
+  margin-bottom: 12px;
+}
+.noteBox p {
+  font-size: 13px;
+  color: #9aa19c;
+}
+.wideSection {
+  max-width: 1200px;
+  margin: 50px auto 0 auto;
+  padding: 0 10px;
+}
+
+.wideSection h2 {
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #2b2f2c;
+  padding-bottom: 10px;
+}
+
+.galleryEmptyText {
+  color: #9aa19c;
+  font-size: 14px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.photoCard {
+  background-color: #1a1d1b;
+  border: 1px solid #2b2f2c;
+  border-radius: 10px;
+  padding: 10px;
+  width: 180px;
+}
+.photoCard img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.photoButtons {
+  display: flex;
+  gap: 6px;
+}
+
+.photoButtons button {
+  flex: 1;
+  font-size: 12px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #444944;
+  background-color: #2b2f2c;
+  color: #f2f2ef;
+}
+.lessonGrid, .challengeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.lessonCard, .challengeCard {
+  background-color: #1a1d1b;
+  border: 1px solid #2b2f2c;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.lessonCard h3, .challengeCard h3 {
+  color: #6fcf68;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.lessonCard p, .challengeCard p {
+  font-size: 14px;
+  color: #c7ccc8;
+}
+.checkButton {
+  margin-top: 12px;
+  background-color: #2b2f2c;
+  color: #f2f2ef;
+  border: 1px solid #444944;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.challengeResult {
+  margin-top: 10px;
+  font-size: 14px;
+  min-height: 18px;
+}
+
+@media (max-width: 900px) {
+  .simulatorLayout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cameraColumn, .settingsColumn {
+    width: 100%;
+    max-width: 480px;
+  }
+}
+@media (max-width: 500px) {
+  .topBar h1 {
+    font-size: 28px;
+  }
+
+  .cameraCard {
+    width: 100%;
+  }
+}
